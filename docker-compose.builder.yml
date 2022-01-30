@@ -1,0 +1,15 @@
+version: '2'
+services:
+  base:
+    image: node:16-alpine
+    volumes:
+      - .:/usr/src/service
+    working_dir: /usr/src/service
+  install:
+    extends:
+      service: base
+    command: npm install
+  build:
+    extends:
+      service: base
+    command: npm run build
